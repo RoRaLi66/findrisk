@@ -124,25 +124,20 @@ for (var i = 0; i <nextButtons.length; i++) {
     }
 
     // 3. Zur nächsten Seite wechseln
-    // ALT ====================================
+    
      if (currentPage < pages.length - 1) {
-       currentPage = currentPage + 1;
-       showPage(currentPage);
-     }
-	// ENDE ALT ====================================
-
-	// NEU ========================================
-	/* if (currentPage < pages.length - 1) {
-
-  		// Wenn die letzte Frage beantwortet wurde:
+	
+		// NEU ====================================
+		// Bei der letzten Frage die Daten senden
   		if (currentPage == 8) {
     		sendeDaten();
   		}
-
-  		currentPage = currentPage + 1;
-  		showPage(currentPage);
-	}*/
-	// ENDE NEU ========================================
+		// ENDE NEU ====================================
+		 
+       	currentPage = currentPage + 1;
+       	showPage(currentPage);
+     }
+	
 
   });
 
