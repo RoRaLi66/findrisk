@@ -1,0 +1,129 @@
+/* Grundlayout */
+body {
+    font-family: "Inter", Arial, sans-serif;
+    background: linear-gradient(135deg, #e3f6f5, #c7f5d9);
+    margin: 0;
+    padding: 0;
+    color: #03312e;
+}
+
+#app {
+    max-width: 650px;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    animation: fadeIn 0.4s ease;
+}
+
+/* Seiten */
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;   /* Die aktive Seite wird als block gezeigt */
+}
+
+/* Überschriften */
+h1, h2 {
+    margin-top: 0;
+    color: #025f6d;
+}
+
+/* Info-Boxen */
+
+/* Allgemein Gestaltung für bmi-hint und error */
+.bmi-hint,
+.error {
+    background: #e8f9f6;
+    border-left: 5px solid #2bbbad;
+    padding: 12px 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    color: #03312e;
+}
+
+/* Spezielle Gestaltung nur für error, überschreibt teilweise vorherigen Block */
+.error {
+    background: #ffe8e8;
+    border-left-color: #ff6b6b;
+    color: #8b0000;
+    display: none;
+}
+
+/* Labels */
+label {
+    display: block;
+    padding: 12px 15px;
+    margin: 10px 0;
+    background: #f4fbfa;
+    border: 1px solid #d9f2ef;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+label:hover {
+    background: #e1f7f4;
+    border-color: #2bbbad;
+}
+
+/* Radio Buttons */
+input[type="radio"] {
+    transform: scale(1.3);
+    margin-right: 10px;
+}
+
+/* Buttons */
+button.next,
+#downloadCsv {
+    background: #2bbbad;
+    color: white;
+    border: none;
+    padding: 14px 22px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+button.next:hover,
+#downloadCsv:hover {
+    background: #22a394;
+}
+
+button.next:active,
+#downloadCsv:active {
+    transform: scale(0.97);
+}
+
+/* Eingabefeld für Name/ID */
+input[type="text"] {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: 1px solid #bde7e2;
+    margin-bottom: 15px;
+    font-size: 16px;
+    transition: border 0.2s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #2bbbad;
+    outline: none;
+}
+
+/* Ergebnistext */
+#result p {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
