@@ -3,6 +3,56 @@ const pages = document.querySelectorAll(".page");
 
 const nextButtons = document.querySelectorAll(".next");
 
+// NEU =======================================================
+var serverUrl = "https://script.google.com/macros/s/AKfycbyhQC-L6Ec423J9ZYFDTYxwsxqJvkoFuGyy2txyvmZzXFyiyt6Qb1LQwwZ12NLOra8hVA/exec"
+
+function sendeDaten() {
+
+  var daten = {};
+
+  // User-ID
+  daten.userId = document.getElementById("userId").value;
+
+  // Antworten q1 bis q8
+  for (var i = 1; i <= 8; i++) {
+
+    var selector = "input[name='q" + i + "']:checked";
+    var selected = document.querySelector(selector);
+
+    if (selected != null) {
+      daten["q" + i] = selected.value;
+    }
+  }
+
+  // Geschlecht
+  var geschlecht = document.querySelector("input[name='geschl']:checked");
+
+  if (geschlecht != null) {
+    daten.geschlecht = geschlecht.value;
+  }
+
+  // Summe berechnen
+  var summe = 0;
+
+  for (var i = 1; i <= 8; i++) {
+    if (daten["q" + i] != null) {
+      summe = summe + Number(daten["q" + i]);
+    }
+  }
+
+  daten.summe = summe;
+
+  // Daten an Google Apps Script senden
+  fetch(serverUrl, {
+    method: "POST",
+    body: JSON.stringify(daten)
+  });
+
+}
+
+// ENDE NEU ==================================================
+
+
 function showPage(index) {
     
 	for (var i = 0; i < pages.length; i++) {
@@ -74,10 +124,25 @@ for (var i = 0; i <nextButtons.length; i++) {
     }
 
     // 3. Zur nächsten Seite wechseln
+    // ALT ====================================
     if (currentPage < pages.length - 1) {
       currentPage = currentPage + 1;
       showPage(currentPage);
     }
+	// ENDE ALT ====================================
+
+	// NEU ========================================
+	if (currentPage < pages.length - 1) {
+
+  		// Wenn die letzte Frage beantwortet wurde:
+  		if (currentPage == 8) {
+    		sendeDaten();
+  		}
+
+  		currentPage = currentPage + 1;
+  		showPage(currentPage);
+	}
+	// ENDE NEU ========================================
 
   });
 
