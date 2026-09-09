@@ -125,10 +125,10 @@ for (var i = 0; i <nextButtons.length; i++) {
 
     // 3. Zur nächsten Seite wechseln
     // ALT ====================================
-    if (currentPage < pages.length - 1) {
-      currentPage = currentPage + 1;
-      showPage(currentPage);
-    }
+    // if (currentPage < pages.length - 1) {
+    //   currentPage = currentPage + 1;
+    //   showPage(currentPage);
+    // }
 	// ENDE ALT ====================================
 
 	// NEU ========================================
