@@ -6,7 +6,15 @@ const nextButtons = document.querySelectorAll(".next");
 // NEU =======================================================
 var serverUrl = "https://script.google.com/macros/s/AKfycbyhQC-L6Ec423J9ZYFDTYxwsxqJvkoFuGyy2txyvmZzXFyiyt6Qb1LQwwZ12NLOra8hVA/exec"
 
+var datenGesendet = false;
+
 function sendeDaten() {
+
+	if (datenGesendet == true) {
+  return;
+}
+
+datenGesendet = true;
 
   var daten = {};
 
@@ -46,6 +54,13 @@ function sendeDaten() {
   fetch(serverUrl, {
     method: "POST",
     body: JSON.stringify(daten)
+  })
+  .then(function(response) {
+    console.log("Daten wurden gespeichert.");
+  })
+  .catch(function(error) {
+    console.log("Fehler beim Speichern:");
+    console.log(error);
   });
 
 }
